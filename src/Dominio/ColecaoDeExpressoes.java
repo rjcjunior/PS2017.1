@@ -10,37 +10,46 @@ import java.util.Set;
  *
  * @author Ricardo Junior
  */
-public class Expressao {
+public class ColecaoDeExpressoes {
     
-    private Set<String> colecaodeexpressoes; 
+    private Set<String> colecao; 
     
     public void Expressao() {
-        colecaodeexpressoes = new HashSet<String>();        
+        colecao = new HashSet<String>();        
     }
         
     public Set getcolecao(){
-        return colecaodeexpressoes;
+        return colecao;
     }
     
     public boolean incluirExpressao(String s){
             s = s.toLowerCase();
-            return colecaodeexpressoes.add(s);
+            return colecao.add(s);
     }
     
     public boolean verificarExistencia(String s){
         s = s.toLowerCase();
-        return colecaodeexpressoes.contains(s);
+        return colecao.contains(s);
     }
     
     public boolean deletarexpressao(String s){
         s = s.toLowerCase();
-        return colecaodeexpressoes.remove(s);
+        return colecao.remove(s);
     }
     
+    public boolean alterarExpressao(String s1, String s2){
+        s1 = s1.toLowerCase();
+        s2 = s2.toLowerCase();
+        if (colecao.contains(s1)){
+            colecao.remove(s1);
+            return colecao.add(s2);
+        }
+        return false;
+    }
     public Set consultarDeterminadaPalavra(String s){
         s = s.toLowerCase();
         Set<String> aux = new HashSet();
-        for (String j:colecaodeexpressoes){
+        for (String j:colecao){
             if (j.contains(s)){
                 aux.add(j);
             }
@@ -51,12 +60,12 @@ public class Expressao {
     public Set consultarLetraInicial(String s){
         s = s.toLowerCase();
         Set<String> aux = new HashSet();
-        for (String j:colecaodeexpressoes){
+        for (String j:colecao){
             if (j.startsWith(s)){
                 aux.add(j);
             }
         }
         return aux;
     }
-
+    
 }
