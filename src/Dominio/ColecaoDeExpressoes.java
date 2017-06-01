@@ -16,9 +16,10 @@ public class ColecaoDeExpressoes {
     
     private Set<String> colecao; 
     private Persistencia persistencia;
-    
-    public void ColecaoDeExpressoes() {
+
+    public  ColecaoDeExpressoes() {
         colecao = new HashSet<String>();
+        persistencia = new Persistencia();
         colecao = persistencia.lerBinario();
     }
         

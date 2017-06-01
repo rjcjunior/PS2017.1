@@ -14,8 +14,15 @@ import java.util.Set;
 public class ExpressaoController {
     private ColecaoDeExpressoes dicionario;
     
+    
+    public static void main(String[] args) {
+
+        ExpressaoController e = new ExpressaoController();
+        e.listar();
+    }
     public ExpressaoController(){
         dicionario = new ColecaoDeExpressoes();
+        
     }
     
     public boolean adicionar(String s){

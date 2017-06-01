@@ -13,7 +13,7 @@ public class Visao {
     private Scanner entrada = new Scanner(System.in);
     private ExpressaoController controller = new ExpressaoController();
     private int aux;
-    public static void main(String[] args) {
+    public  void main(String[] args) {
         System.out.print( "-------------------------------\n");
         Visao  v = new Visao();
         v.menuVerificarUsuario();

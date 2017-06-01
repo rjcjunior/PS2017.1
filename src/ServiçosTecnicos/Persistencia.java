@@ -39,6 +39,7 @@ import java.util.Set;
     		@SuppressWarnings("unchecked")
 		HashSet<String> expressoes1 = (HashSet<String>) is.readObject();
     		is.close();
+                System.out.println("teste123");
                 return expressoes1;
     	}
     	catch(IOException e){
@@ -46,6 +47,7 @@ import java.util.Set;
         
     	catch(ClassNotFoundException e){
     	}
+        System.out.println("teste");
         return expressoes;
     }
 }
