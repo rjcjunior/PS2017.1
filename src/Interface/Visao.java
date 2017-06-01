@@ -35,7 +35,7 @@ public class Visao {
                 System.out.print( "Entre com a senha:\n");
                 int aux2 = entrada.nextInt();
                 if (aux2 != 1234){
-                        System.out.print( "Senha errada\n");
+                        System.out.print( "Senha errada.\n");
                         menuVerificarUsuario();
                         break;
                 }
@@ -53,12 +53,12 @@ public class Visao {
         String aux1;
         System.out.print( "Selecione o tipo de consulta:\n");
         System.out.print( " 1) Expressões que contenham uma determinada palavra\n");
-        System.out.print( " 2) Expressoes Iniciadas por uma determinada letra\n");
+        System.out.print( " 2) Expressoes iniciadas por uma determinada letra\n");
         System.out.print( " 3) Expressoes terminadas por uma determinada letra\n");
-        System.out.print( " 4) Expressões que contenham um determinado numero de palavras\n");
+        System.out.print( " 4) Expressões que contenham um determinado número de palavras\n");
         System.out.print( " 5) Expressões que não contenham uma determinada palavra\n");
-        System.out.print( " 6) Listar expressoes\n");
-        System.out.print( " 7) Verificar existencia\n");
+        System.out.print( " 6) Listar expressões\n");
+        System.out.print( " 7) Verificar existência\n");
         System.out.print( " 8) Voltar\n");
         int aux = entrada.nextInt();
         switch (aux) {
@@ -69,19 +69,19 @@ public class Visao {
                 menuConsulta();
                 break;
             case 2:
-                System.out.printf("Insira uma palavra: ");
+                System.out.printf("Insira uma letra: ");
                 aux1 = entrada.next();
                 controller.consultaLetraInicial(aux1);
                 menuConsulta();
                 break;
             case 3:
-                System.out.printf("Insira uma palavra: ");
+                System.out.printf("Insira uma letra: ");
                 aux1 = entrada.next();
                 controller.consultaLetraFinal(aux1);                
                 menuConsulta();
                 break;
             case 4:
-                System.out.printf("Insira um numero");
+                System.out.printf("Insira um número: ");
                 int aux2 = entrada.nextInt();
                 controller.consultaNumPalvara(aux2);
                 menuConsulta();                
@@ -97,8 +97,10 @@ public class Visao {
                 menuConsulta();
                 break;
             case 7:          
-                System.out.printf("Insira uma expressao: ");
-                aux1 = entrada.next();
+                System.out.printf("Insira uma expressão: ");
+                //fix entrada de opção
+                entrada.nextLine();
+                aux1 = entrada.nextLine();
                 controller.verificar(aux1);                
                 menuConsulta();
                 break;
@@ -114,37 +116,45 @@ public class Visao {
     private void menuCrudExpressao(){
             String aux1;
             System.out.print( "Selecione o que deseja fazer:\n");
-            System.out.print( " 1) Adicionar expressao\n");
-            System.out.print( " 2) Excluir expressao\n");
-            System.out.print( " 3) Alterar expressao\n");
-            System.out.print( " 4) Verificar expressao \n");
-            System.out.print( " 5) Listar expressoes\n");
+            System.out.print( " 1) Adicionar expressão\n");
+            System.out.print( " 2) Excluir expressão\n");
+            System.out.print( " 3) Alterar expressão\n");
+            System.out.print( " 4) Verificar expressão \n");
+            System.out.print( " 5) Listar expressões\n");
             System.out.print( " 6) Voltar\n");
             int aux = entrada.nextInt();
             switch (aux) {
                 case 1:
-                    System.out.printf("Insira uma expressao: ");
-                    aux1 = entrada.next();
+                    System.out.printf("Insira uma expressão: ");
+                    //fix entrada de opção
+                    entrada.nextLine();
+                    aux1 = entrada.nextLine();
                     controller.adicionar(aux1);
                     menuCrudExpressao();
                     break;
                 case 2:
-                    System.out.printf("Insira uma expressao: ");
-                    aux1 = entrada.next();
+                    System.out.printf("Insira uma expressão: ");
+                    //fix entrada de opção
+                    entrada.nextLine();
+                    aux1 = entrada.nextLine();
                     controller.deletar(aux1);
                     menuCrudExpressao();
                     break;
                 case 3:
-                    System.out.printf("Insira a expressao: ");
-                    aux1 = entrada.next();
-                    System.out.printf("Insira a expressao corrigida");
-                    String aux3 = entrada.next();
+                    System.out.printf("Insira a expressão: ");
+                    //fix entrada de opção
+                    entrada.nextLine();
+                    aux1 = entrada.nextLine();
+                    System.out.printf("Insira a expressão corrigida: ");
+                    String aux3 = entrada.nextLine();
                     controller.alterar(aux1, aux3);
                     menuCrudExpressao();
                     break;
                 case 4:
-                    System.out.printf("Insira uma expressao: ");
-                    aux1 = entrada.next();
+                    System.out.printf("Insira uma expressão: ");
+                    //fix entrada de opção
+                    entrada.nextLine();
+                    aux1 = entrada.nextLine();
                     controller.verificar(aux1);
                     menuCrudExpressao();
                     break;
