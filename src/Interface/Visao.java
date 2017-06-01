@@ -5,10 +5,10 @@
  */
 package Interface;
 
-import Dominio.ColecaoDeExpressoes;
-import java.util.HashSet;
-import java.util.Iterator;
+
 import java.util.Set;
+
+
 
 /**
  *
@@ -17,24 +17,19 @@ import java.util.Set;
 public class Visao {
 
     public static void main(String[] args) {
-        ColecaoDeExpressoes dicionario = new ColecaoDeExpressoes();
-        dicionario.Expressao();
-        dicionario.incluirExpressao("Alfabeto");
-        dicionario.incluirExpressao("BUZINA");
-        dicionario.incluirExpressao("Buzina");
-        dicionario.incluirExpressao("Carro");
-        Iterator<String> iterator = dicionario.getcolecao().iterator();
-        while(iterator.hasNext()){
-            System.out.print(iterator.next() + "\n");
-        }
-
-        dicionario.deletarexpressao("teste");
-        Set <String> teste = dicionario.consultarLetraInicial("e"); 
         System.out.print( "-------------------------------\n");
-
-        for (String j:teste){
-              System.out.println(j);
-        }
     }
+    
+    private void menuVerificarUsuario(){
+        System.out.print( "-------------------------------\n");
+    }
+    
+    private void menuConsulta(){
+        System.out.print( "-------------------------------\n");
+    }
+    
+    private void menuCrudExpressao(){
+        System.out.print( "-------------------------------\n");
+    }    
 
 }

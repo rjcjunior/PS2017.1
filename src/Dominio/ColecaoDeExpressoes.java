@@ -6,16 +6,20 @@
 package Dominio;
 import java.util.HashSet;
 import java.util.Set;
+import ServiçosTecnicos.Persistencia;
+
 /**
  *
- * @author Ricardo Junior
+ * 
  */
 public class ColecaoDeExpressoes {
     
     private Set<String> colecao; 
+    private Persistencia persistencia;
     
-    public void Expressao() {
-        colecao = new HashSet<String>();        
+    public void ColecaoDeExpressoes() {
+        colecao = new HashSet<String>();
+        colecao = persistencia.lerBinario();
     }
         
     public Set getcolecao(){
@@ -24,7 +28,8 @@ public class ColecaoDeExpressoes {
     
     public boolean incluirExpressao(String s){
             s = s.toLowerCase();
-            return colecao.add(s);
+            colecao.add(s);
+            return persistencia.gravaBinario(colecao);
     }
     
     public boolean verificarExistencia(String s){
@@ -34,7 +39,8 @@ public class ColecaoDeExpressoes {
     
     public boolean deletarexpressao(String s){
         s = s.toLowerCase();
-        return colecao.remove(s);
+        colecao.remove(s);
+        return persistencia.gravaBinario(colecao);
     }
     
     public boolean alterarExpressao(String s1, String s2){
@@ -42,30 +48,10 @@ public class ColecaoDeExpressoes {
         s2 = s2.toLowerCase();
         if (colecao.contains(s1)){
             colecao.remove(s1);
-            return colecao.add(s2);
+            colecao.add(s2);
+            return persistencia.gravaBinario(colecao);
         }
         return false;
-    }
-    public Set consultarDeterminadaPalavra(String s){
-        s = s.toLowerCase();
-        Set<String> aux = new HashSet();
-        for (String j:colecao){
-            if (j.contains(s)){
-                aux.add(j);
-            }
-        }
-        return aux;
-    }
-   
-    public Set consultarLetraInicial(String s){
-        s = s.toLowerCase();
-        Set<String> aux = new HashSet();
-        for (String j:colecao){
-            if (j.startsWith(s)){
-                aux.add(j);
-            }
-        }
-        return aux;
     }
     
 }
