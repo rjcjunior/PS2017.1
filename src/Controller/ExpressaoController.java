@@ -5,6 +5,7 @@
  */
 package Controller;
 import Dominio.ColecaoDeExpressoes;
+import java.io.IOException;
 import java.util.Set;
 
 /**
@@ -14,13 +15,7 @@ import java.util.Set;
 public class ExpressaoController {
     private ColecaoDeExpressoes dicionario;
     
-    
-    public static void main(String[] args) {
-
-        ExpressaoController e = new ExpressaoController();
-        e.listar();
-    }
-    public ExpressaoController(){
+    public ExpressaoController() throws IOException{
         dicionario = new ColecaoDeExpressoes();
         
     }
@@ -43,70 +38,71 @@ public class ExpressaoController {
 
     public void consultaNumPalvara(int i){
         Set<String> aux = dicionario.getcolecao();
-        System.out.printf("------------");                
+        System.out.printf("------------\n");                
         for (String j:aux){
             if (j.length() == 3){
-                System.out.printf(j,"\n");
+                System.out.printf(j + "\n");
             }
         }
-        System.out.printf("------------");                
+        System.out.printf("------------\n");                
     }
    
     public void consultaDeterminadaPalavra(String s){
         s = s.toLowerCase();
         Set<String> aux = dicionario.getcolecao();
-        System.out.printf("------------");                
+        System.out.printf("------------\n");                
         for (String j:aux){
             if (j.contains(s)){
-                System.out.printf(j,"\n");
+                System.out.printf(j + "\n");
             }
         }
-        System.out.printf("------------");                
+        System.out.printf("------------\n");                
     }
    
     public void consultaSemPalavra(String s){
         s = s.toLowerCase();
         Set<String> aux = dicionario.getcolecao();
-        System.out.printf("------------");                        
+        System.out.printf("------------\n");                        
         for (String j:aux){
             if (!j.contains(s)){
-                System.out.printf(j,"\n");
+                System.out.printf(j + "\n");
             }
         }
-        System.out.printf("------------");                        
+        System.out.printf("------------\n");                        
     }
    
     public void consultaLetraInicial(String s){
         s = s.toLowerCase();
         Set<String> aux = dicionario.getcolecao();
-        System.out.printf("------------");                
+        System.out.printf("------------\n");                
         for (String j:aux){
             if (j.startsWith(s)){
-                System.out.printf(j,"\n");
+                System.out.printf(j + "\n");
             }
         }
-        System.out.printf("------------");                
+        System.out.printf("------------\n");                
     }
 
     public void consultaLetraFinal(String s){
         s = s.toLowerCase();
         Set<String> aux = dicionario.getcolecao();
-        System.out.printf("------------");                
+        System.out.printf("------------\n");                
         for (String j:aux){
             if (j.endsWith(s) ){
-                System.out.printf(j,"\n");
+                System.out.printf(j + "\n");
             }
         }
-        System.out.printf("------------");                
+        System.out.printf("------------\n");                
     }
 
     public void listar(){
         Set<String> aux = dicionario.getcolecao();
-        System.out.printf("------------");                
+        System.out.printf("------------\n");                
         for (String j:aux){
-                System.out.printf(j,"\n");
+                System.out.printf(j + "\n");
         }
-        System.out.printf("------------");                
+        System.out.printf("------------\n");                
+
     }
 
 }

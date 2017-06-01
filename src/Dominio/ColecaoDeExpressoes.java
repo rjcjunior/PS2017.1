@@ -7,6 +7,7 @@ package Dominio;
 import java.util.HashSet;
 import java.util.Set;
 import ServiçosTecnicos.Persistencia;
+import java.io.IOException;
 
 /**
  *
@@ -17,7 +18,7 @@ public class ColecaoDeExpressoes {
     private Set<String> colecao; 
     private Persistencia persistencia;
 
-    public  ColecaoDeExpressoes() {
+    public  ColecaoDeExpressoes() throws IOException {
         colecao = new HashSet<String>();
         persistencia = new Persistencia();
         colecao = persistencia.lerBinario();

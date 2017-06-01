@@ -5,6 +5,7 @@
  */
 package ServiçosTecnicos;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -18,36 +19,43 @@ import java.util.Set;
  * 
  */public class Persistencia {
 	private String fileName = "arquivo.bin";
-    
-	public boolean gravaBinario(Set<String> expressoes){
-    	try{
-	    	ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(fileName));
-	    	os.writeObject(expressoes);
-	    	os.close();
-	    	return true;
-    	}
-    	catch(IOException e){
-    	}
-    	return false;
+        File arquivo = new File("arquivo.bin");
+        
+        public Persistencia() throws IOException{
+            if (!arquivo.exists()){
+                            new File("arquivo.bin").createNewFile();
+            }
+        }
+        
+        public boolean gravaBinario(Set<String> expressoes){
+            try{
+                    ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(fileName));
+                    os.writeObject(expressoes);
+                    os.close();
+                    return true;
+            }
+            catch(IOException e){
+            }
+            return false;
         
     }
     
         public HashSet<String> lerBinario(){
-  	HashSet<String> expressoes = new HashSet<String>();    
-        try{
-    		ObjectInputStream is = new ObjectInputStream(new FileInputStream(fileName));
-    		@SuppressWarnings("unchecked")
-		HashSet<String> expressoes1 = (HashSet<String>) is.readObject();
-    		is.close();
-                System.out.println("teste123");
-                return expressoes1;
-    	}
-    	catch(IOException e){
-        }
-        
-    	catch(ClassNotFoundException e){
-    	}
-        System.out.println("teste");
-        return expressoes;
+            HashSet<String> expressoes = new HashSet<String>();    
+            try{    
+
+                    ObjectInputStream is = new ObjectInputStream(new FileInputStream(fileName));
+                    @SuppressWarnings("unchecked")
+                    HashSet<String> expressoes1 = (HashSet<String>) is.readObject();
+                    is.close();
+                    return expressoes1;
+                
+            }
+            catch(IOException e){
+            }
+
+            catch(ClassNotFoundException e){
+            }
+            return expressoes;
     }
 }

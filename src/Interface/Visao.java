@@ -7,26 +7,38 @@ package Interface;
 
 
 import Controller.ExpressaoController;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Visao {
     private Scanner entrada = new Scanner(System.in);
-    private ExpressaoController controller = new ExpressaoController();
+    private ExpressaoController controller;
     private int aux;
-    public  void main(String[] args) {
+    
+    public static void main(String[] args) throws IOException {
         System.out.print( "-------------------------------\n");
         Visao  v = new Visao();
         v.menuVerificarUsuario();
     }
+
+    public Visao() throws IOException {
+        this.controller = new ExpressaoController();
+    }
     
     private void menuVerificarUsuario(){
-        System.out.print( "-------------------------------\n");        
         System.out.print( "Selecione o tipo do utilizador:\n");
         System.out.print( " 1) Administrador \n");
         System.out.print( " 2) Consultas \n");
         int aux = entrada.nextInt();
         switch (aux) {
             case 1:
+                System.out.print( "Entre com a senha:\n");
+                int aux2 = entrada.nextInt();
+                if (aux2 != 1234){
+                        System.out.print( "Senha errada\n");
+                        menuVerificarUsuario();
+                        break;
+                }
                 menuCrudExpressao();
                 break;
             case 2:
@@ -39,7 +51,6 @@ public class Visao {
     
     private void menuConsulta(){
         String aux1;
-        System.out.print( "-------------------------------\n");
         System.out.print( "Selecione o tipo de consulta:\n");
         System.out.print( " 1) Expressões que contenham uma determinada palavra\n");
         System.out.print( " 2) Expressoes Iniciadas por uma determinada letra\n");
@@ -89,16 +100,7 @@ public class Visao {
     }
     
     private void menuCrudExpressao(){
-        String aux1;
-        System.out.print( "-------------------------------\n");
-        System.out.print( "Entre com a senha:\n");
-        int aux2 = entrada.nextInt();
-        if (aux2 != 1234){
-            System.out.print( "Senha errada\n");
-            menuVerificarUsuario();
-        }
-        
-        else{
+            String aux1;
             System.out.print( "Selecione o que deseja fazer:\n");
             System.out.print( " 1) Adicionar expressao\n");
             System.out.print( " 2) Excluir expressao\n");
@@ -144,7 +146,7 @@ public class Visao {
                 default:
                     System.out.printf("Você digitou uma operação inválida.");        
             }
-        }    
-    }    
+           
+    } 
 
 }
