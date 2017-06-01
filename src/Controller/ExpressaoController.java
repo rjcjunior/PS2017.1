@@ -20,20 +20,44 @@ public class ExpressaoController {
         
     }
     
-    public boolean adicionar(String s){
-            return dicionario.incluirExpressao(s);
+    public void adicionar(String s){
+            if (dicionario.incluirExpressao(s)){
+                System.out.printf("Adicionado!\n");
+            }
+            
+            else{
+                System.out.printf("Não adicionado!\n");                
+            }
     }
     
-    public boolean verificar(String s){
-            return dicionario.verificarExistencia(s);
+    public void verificar(String s){
+            if (dicionario.verificarExistencia(s)){
+                System.out.printf("Existe!\n");
+            }
+            
+            else{
+                System.out.printf("Não existe!\n");                
+            }
     }
     
-    public boolean deletar(String s){
-            return dicionario.deletarexpressao(s);
+    public void deletar(String s){
+            if (dicionario.deletarexpressao(s)){
+                System.out.printf("Deletado!\n");
+            }
+            
+            else{
+                System.out.printf("Não Deletado!\n");                
+            }
     }
     
-    public boolean alterar(String s1, String s2){
-            return dicionario.alterarExpressao(s1, s2);
+    public void alterar(String s1, String s2){
+            if (dicionario.alterarExpressao(s1, s2)){
+                System.out.printf("Alterado");
+            }
+            
+            else{
+                System.out.printf("Não alterado");                
+            }
     }
 
     public void consultaNumPalvara(int i){
@@ -97,10 +121,15 @@ public class ExpressaoController {
 
     public void listar(){
         Set<String> aux = dicionario.getcolecao();
-        System.out.printf("------------\n");                
-        for (String j:aux){
-                System.out.printf(j + "\n");
+        System.out.printf("------------\n");
+        if (aux.isEmpty()){
+            System.out.printf("Vazio!\n");            
         }
+        else{
+            for (String j:aux){
+                    System.out.printf(j + "\n");
+            }
+        }    
         System.out.printf("------------\n");                
 
     }

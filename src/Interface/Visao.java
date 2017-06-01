@@ -57,7 +57,9 @@ public class Visao {
         System.out.print( " 3) Expressoes terminadas por uma determinada letra\n");
         System.out.print( " 4) Expressões que contenham um determinado numero de palavras\n");
         System.out.print( " 5) Expressões que não contenham uma determinada palavra\n");
-        System.out.print( " 6) Voltar\n");
+        System.out.print( " 6) Listar expressoes\n");
+        System.out.print( " 7) Verificar existencia\n");
+        System.out.print( " 8) Voltar\n");
         int aux = entrada.nextInt();
         switch (aux) {
             case 1:
@@ -90,7 +92,17 @@ public class Visao {
                 controller.consultaSemPalavra(aux1);                
                 menuConsulta();
                 break;
-            case 6:
+            case 6:          
+                controller.listar();                
+                menuConsulta();
+                break;
+            case 7:          
+                System.out.printf("Insira uma expressao: ");
+                aux1 = entrada.next();
+                controller.verificar(aux1);                
+                menuConsulta();
+                break;
+            case 8:
                 menuVerificarUsuario();
                 break;
             default:
