@@ -24,7 +24,6 @@ import java.util.Set;
 	    	ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(fileName));
 	    	os.writeObject(expressoes);
 	    	os.close();
-//	    	System.out.println("\nArquivo salvo");
 	    	return true;
     	}
     	catch(IOException e){
@@ -33,19 +32,20 @@ import java.util.Set;
         
     }
     
-    public HashSet<String> lerBinario(){
-    	try{
+        public HashSet<String> lerBinario(){
+  	HashSet<String> expressoes = new HashSet<String>();    
+        try{
     		ObjectInputStream is = new ObjectInputStream(new FileInputStream(fileName));
     		@SuppressWarnings("unchecked")
-		HashSet<String> expressoes = (HashSet<String>) is.readObject();
+		HashSet<String> expressoes1 = (HashSet<String>) is.readObject();
     		is.close();
-                return expressoes;
+                return expressoes1;
     	}
     	catch(IOException e){
         }
         
     	catch(ClassNotFoundException e){
     	}
-        return null;
+        return expressoes;
     }
 }

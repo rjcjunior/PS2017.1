@@ -5,7 +5,6 @@
  */
 package Controller;
 import Dominio.ColecaoDeExpressoes;
-import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -35,62 +34,72 @@ public class ExpressaoController {
             return dicionario.alterarExpressao(s1, s2);
     }
 
-    public Set consultaNumPalvara(int i){
+    public void consultaNumPalvara(int i){
         Set<String> aux = dicionario.getcolecao();
-        Set<String> aux2 = new HashSet();
+        System.out.printf("------------");                
         for (String j:aux){
             if (j.length() == 3){
-                aux2.add(j);
+                System.out.printf(j,"\n");
             }
         }
-        return aux2;
+        System.out.printf("------------");                
     }
    
-    public Set consultaDeterminadaPalavra(String s){
+    public void consultaDeterminadaPalavra(String s){
         s = s.toLowerCase();
         Set<String> aux = dicionario.getcolecao();
-        Set<String> aux2 = new HashSet();
+        System.out.printf("------------");                
         for (String j:aux){
             if (j.contains(s)){
-                aux2.add(j);
+                System.out.printf(j,"\n");
             }
         }
-        return aux2;
+        System.out.printf("------------");                
     }
    
-    public Set consultaSemPalavra(String s){
+    public void consultaSemPalavra(String s){
         s = s.toLowerCase();
         Set<String> aux = dicionario.getcolecao();
-        Set<String> aux2 = new HashSet();
+        System.out.printf("------------");                        
         for (String j:aux){
             if (!j.contains(s)){
-                aux2.add(j);
+                System.out.printf(j,"\n");
             }
         }
-        return aux2;
+        System.out.printf("------------");                        
     }
    
-    public Set consultaLetraInicial(String s){
+    public void consultaLetraInicial(String s){
         s = s.toLowerCase();
         Set<String> aux = dicionario.getcolecao();
-        Set<String> aux2 = new HashSet();
+        System.out.printf("------------");                
         for (String j:aux){
             if (j.startsWith(s)){
-                aux2.add(j);
+                System.out.printf(j,"\n");
             }
         }
-        return aux2;
+        System.out.printf("------------");                
     }
 
-    public Set consultaLetraFinal(String s){
+    public void consultaLetraFinal(String s){
         s = s.toLowerCase();
         Set<String> aux = dicionario.getcolecao();
-        Set<String> aux2 = new HashSet();
+        System.out.printf("------------");                
         for (String j:aux){
             if (j.endsWith(s) ){
-                aux2.add(j);
+                System.out.printf(j,"\n");
             }
         }
-        return aux2;
+        System.out.printf("------------");                
     }
+
+    public void listar(){
+        Set<String> aux = dicionario.getcolecao();
+        System.out.printf("------------");                
+        for (String j:aux){
+                System.out.printf(j,"\n");
+        }
+        System.out.printf("------------");                
+    }
+
 }
